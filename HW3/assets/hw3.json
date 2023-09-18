@@ -1,0 +1,39 @@
+{
+    "subjects":[
+        {
+        "name": "theory of algorithms",
+        "techical": true,
+        "complexity": 3
+        },
+        {
+            "name": "computer science",
+            "techical": true,
+            "complexity": 5
+        },
+        {
+            "name": "databases",
+            "techical": true,
+            "complexity": 4
+        },
+        {
+            "name": "higher mathematics",
+            "techical": true,
+            "complexity": 5
+        },
+        {
+            "name": "ecomonic",
+            "techical": false,
+            "complexity": 3
+        },
+        {
+            "name": "psychological",
+            "techical": false,
+            "complexity": 4
+        },
+        {
+            "name": "philosophy",
+            "techical": false,
+            "complexity": 3
+        }   
+    ]
+}
