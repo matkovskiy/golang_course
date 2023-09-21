@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"hw4/internal/structs"
-	"hw4/pkg/sys_lib"
+	"hw4/pkg/files_slices"
 	"strconv"
 	"strings"
 )
@@ -11,9 +11,9 @@ import (
 func exercise1() {
 	file := "assets/text.txt"
 	search := "I'm addicted to you"
-	lines := sys_lib.Read_file(file)
+	lines := files_slices.Read_file(file)
 	fmt.Printf("You are trying to find \"%s\"\n", search)
-	result := sys_lib.FindMatchInSlice(lines, search)
+	result := files_slices.FindMatchInSlice(lines, search)
 	if len(result) > 0 {
 		fmt.Printf("We found %d matches\n", len(result))
 		for i := range result {

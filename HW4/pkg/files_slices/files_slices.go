@@ -1,4 +1,4 @@
-package sys_lib
+package files_slices
 
 import (
 	"bufio"
