@@ -47,7 +47,11 @@ Make_Move:
 		goto Make_Move
 	}
 	mark, _ := strconv.Atoi(turn)
-	fmt.Printf("Mark=%d", mark)
+	if field[mark] != " " {
+		fmt.Print("Cell is occupied, Try again\n\n")
+		goto Make_Move
+	}
+
 	field[int(mark)] = user.Mark
 }
 
@@ -61,6 +65,7 @@ func ShowStatus(field map[int]string) {
 }
 
 func CheckWinner(field map[int]string) (winner string) {
+	winner = "n/a"
 	if TestkWinner(field, "X") {
 		winner = "X"
 	}
@@ -79,6 +84,5 @@ func TestkWinner(field map[int]string, user string) (winner bool) {
 	if (field[1] == user && field[5] == user && field[9] == user) || (field[3] == user && field[5] == user && field[7] == user) {
 		winner = true
 	}
-
 	return
 }

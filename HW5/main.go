@@ -4,19 +4,20 @@ import (
 	"fmt"
 	"hw5/internal/structs"
 	"hw5/pkg/game_logic"
+	"os"
 )
 
 func main() {
 	field := map[int]string{
-		1: "0",
-		2: "0",
-		3: "0",
-		4: "-",
+		1: " ",
+		2: " ",
+		3: " ",
+		4: " ",
 		5: " ",
 		6: " ",
-		7: "X",
-		8: "8",
-		9: "9",
+		7: " ",
+		8: " ",
+		9: " ",
 	}
 
 	Users := []structs.User{}
@@ -26,10 +27,33 @@ func main() {
 	game := structs.Game{Field: field}
 	fmt.Println(game.Field[1])
 
-	game_logic.MakeMark(Users[0], field)
+	switch_var := true
+	for i := 1; i < 10; i++ {
+		if switch_var {
+			game_logic.MakeMark(Users[0], field)
+			game_logic.ShowStatus(field)
+			winner := game_logic.CheckWinner(field)
+			if winner != "n/a" {
+				fmt.Printf("Winner is: %s\n", winner)
+				os.Exit(0)
+			}
+			switch_var = !switch_var
+		} else {
 
-	game_logic.ShowStatus(field)
-	winner := game_logic.CheckWinner(field)
-	fmt.Printf("Winner is: %s\n", winner)
+			game_logic.MakeMark(Users[1], field)
+			game_logic.ShowStatus(field)
+			winner := game_logic.CheckWinner(field)
+			if winner != "n/a" {
+				fmt.Printf("Winner is: %s\n", winner)
+				os.Exit(0)
+			}
+			switch_var = !switch_var
+		}
+
+	}
+	fmt.Printf("Game is finished. No one won")
+	// winner := game_logic.CheckWinner(field)
+
+	// fmt.Printf("Winner is: %s\n", winner)
 
 }
