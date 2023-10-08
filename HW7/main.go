@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	exercise1 "github.com/matkovskiy/golang_course/HW7/pkg/exercise1"
 	"github.com/matkovskiy/golang_course/HW7/pkg/exercise2"
 )
@@ -31,7 +33,9 @@ func exercise_2() {
 }
 
 func main() {
-	// exercise_1()
+	fmt.Println("Exercise1:")
+	exercise_1()
+	fmt.Println("Exercise2:")
 	exercise_2()
-	// Select2()
+
 }

@@ -22,6 +22,6 @@ func AverageValue(ch chan int, avg chan float64, count int) {
 }
 
 func PrintAverage(ch chan float64) {
-	fmt.Printf("AvarageValue=%g", <-ch)
+	fmt.Printf("AvarageValue=%g\n", <-ch)
 	close(ch)
 }
