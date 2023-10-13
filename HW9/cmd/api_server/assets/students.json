@@ -1,0 +1,18 @@
+{
+    "students":[
+        {
+            "FirstName": "Vasya",
+            "LastName": "Yellow",
+            "Username": "yellowvasya",
+            "Password": "yellow",
+            "ID": "0"
+        },
+        {
+            "FirstName": "Peya",
+            "LastName": "Green",
+            "Username": "petyagreeen",
+            "Password": "green",
+            "ID":"1"
+        }
+    ]
+}
