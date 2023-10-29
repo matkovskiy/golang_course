@@ -1,18 +1,31 @@
 package patterns
 
-import "strings"
+import (
+	"strings"
+)
 
-var bunner string = "\n\n\n==================\nThe place for your advertisment\n\n\n==================\n"
+type TextManipulator func([]string) []string
 
-func AddBaner(text []string) []string {
-	return append(text, bunner)
+type TextManipulatorDecorator func(TextManipulator) TextManipulator
 
+func Ident(data []string) []string {
+	return data
+}
+func ToLower(m TextManipulator) TextManipulator {
+	return func(s []string) []string {
+		var output []string
+		for i := range s {
+			output = append(output, strings.ToLower(s[i]))
+		}
+		return output
+		// output
+	}
 }
 
-func LowerCase(text []string) []string {
-	var output []string
-	for i := range text {
-		output = append(output, strings.ToLower(text[i]))
+func AppendDecoratorFactory(banner string) TextManipulatorDecorator {
+	return func(m TextManipulator) TextManipulator {
+		return func(s []string) []string {
+			return append([]string{banner}, s...)
+		}
 	}
-	return output
 }

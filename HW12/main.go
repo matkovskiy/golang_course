@@ -15,25 +15,27 @@ type Answers struct {
 }
 
 func interactiveWithUser() {
+	var fn patterns.TextManipulator = patterns.Ident
 	ans := Answers{}
 	body := files.Read_file(text_files)
-	var text []string
 	fmt.Println("Please choose your decorator. 1 - Add banner, 2 - replace text to lowercase")
 	fmt.Scanf("%d", &ans.first)
 	switch ans.first {
 	case 1:
-		text = patterns.AddBaner(body)
+		fn = patterns.AppendDecoratorFactory("\n\n\n==================\nThe place for your advertisment\n\n\n==================\n")(fn)
 	case 2:
-		text = patterns.LowerCase(body)
+		fn = patterns.ToLower(fn)
+
 	default:
 		panic("Unexpected input")
 	}
 	fmt.Println("Printing new text:")
+
+	text := []string(fn(body))
 	for i := range text {
 		fmt.Println(text[i])
 	}
-	fmt.Print("\n\n\n")
-
+	fmt.Print("\nStep2:\n")
 	fmt.Println("Please choose your modification. 1 - Duplicate spaces, 2 - Remove specific word")
 	fmt.Scanf("%d", &ans.second)
 	switch ans.second {
