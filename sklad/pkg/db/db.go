@@ -79,32 +79,35 @@ func Db_ping_log() string {
 }
 
 func Get_products() []Product {
+
 	sql := "select id, short_name, description, product_part_number from product;"
 	res, err := db.Query(sql)
+
 	if err != nil {
 		log.Fatal(err)
 	}
 	var result []Product
 	if res.Next() {
+
 		var res_product Product
 		err := res.Scan(&res_product.id, &res_product.short_name, &res_product.description, &res_product.product_part_number)
+
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		result = append(result, res_product)
+
 	}
 	return result
 }
 
 func GetAllProducts() string {
-	sql := "select id, short_name, description, product_part_number from product;"
-	result, _ := getJSON(sql)
-	return result
-}
 
-func GetProductByIP(id string) string {
-	sql := "select id, short_name, description, product_part_number from product where id=" + id + ";"
+	sql := "select id, short_name, description, product_part_number from product;"
+
 	result, _ := getJSON(sql)
+
 	return result
 }
 

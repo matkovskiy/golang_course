@@ -10,9 +10,9 @@ CREATE TABLE product (
     PRIMARY KEY (id)
 );
 
-INSERT INTO product (short_name, description, product_part_number) VALUE ('Logitech MX Master 3S Performance','Mouse Logitech MX Master 3S Performance Wireless Mouse Bluetooth Graphite (910-006559)', '910-006559'),
-('Logitech Lift for Mac Vertical Ergonomic Mouse Off','Mouse Logitech Lift for Mac Vertical Ergonomic Mouse Off White (910-006477)', '910-006477'),
-('Logitech Signature M650 L Wireless Mouse LEFT Off','Mouse Logitech Signature M650 L Wireless Mouse LEFT Off-White (910-006240)', '910-006240');
+INSERT INTO product (short_name, description, product_part_number) VALUE ('Logitech MX Master 3S Performance','Мышь Logitech MX Master 3S Performance Wireless Mouse Bluetooth Graphite (910-006559)', '910-006559'),
+('Logitech Lift for Mac Vertical Ergonomic Mouse Off','Мышь Logitech Lift for Mac Vertical Ergonomic Mouse Off White (910-006477)', '910-006477'),
+('Logitech Signature M650 L Wireless Mouse LEFT Off','Мышь Logitech Signature M650 L Wireless Mouse LEFT Off-White (910-006240)', '910-006240');
 
 
 
